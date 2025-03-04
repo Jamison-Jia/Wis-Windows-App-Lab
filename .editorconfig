@@ -1,0 +1,40 @@
+# File-scoped namespaces (C# 10 and above)
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Place each argument on a new line
+dotnet_style_argument_wrapping = wrap_always
+
+# Wrapping long argument lists (if applicable)
+csharp_preserve_single_line_statements = false
+
+# Indent braces and blocks correctly
+csharp_indent_braces = true
+
+
+# Use spaces for indentation (true for spaces, false for tabs)
+indent_style = space
+
+# Set the number of spaces per indentation level
+indent_size = 4
+
+# Ensure there's no trailing whitespace at the end of lines
+trim_trailing_whitespace = true
+
+# Insert a newline at the end of the file if it's missing
+insert_final_newline = true
+
+
+# Prefer explicit type for local variables when the type is not apparent
+csharp_style_var_elsewhere = false:suggestion
+
+## NewLines
+# Add blank line between members
+csharp_new_line_between_members = true
+
+# Newline after opening brace and before closing brace
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+

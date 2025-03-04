@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="TextForegroundTran">#ffffffff</Color>    <!-- rgba(255, 255, 255, 1) -->
+    <Color x:Key="CommonBackgroundColor">Black</Color>
+    <Color x:Key="CommonTextColor">Black</Color>
+    <Color x:Key="TextForegroundUnchecked">#FF757575</Color>    <!-- rgba(117, 117, 117, 1) -->
+
+    <Color x:Key="LinerGradientColor00">#ff1857eb</Color>        <!--  rgba(24, 87, 235, 1)  -->
+    <Color x:Key="LinerGradientColor01">#ff9669d5</Color>        <!--  rgba(150, 105, 213, 1)  -->
+    <Color x:Key="LinerGradientColor10">#0e1857eb</Color>        <!--  rgba(24, 87, 235, 0.06)  -->
+    <Color x:Key="LinerGradientColor11">#0eb1b1b1</Color>        <!--  rgba(177, 177, 177, 0.06)  -->
+
+    <SvgImageSource x:Key="SettingsImage24"
+                    UriSource="ms-appx:///WinUI3.ThemeLibrary/Resources/Images/settings-24-light.svg" />
+    <SvgImageSource x:Key="ToggleSwitchOnImage16"
+                    UriSource="ms-appx:///WinUI3.ThemeLibrary/Resources/Images/toggle_swtich_on_16_light.svg" />
+    <SvgImageSource x:Key="ToggleSwitchOffImage16"
+                    UriSource="ms-appx:///WinUI3.ThemeLibrary/Resources/Images/toggle_swtich_off_16_light.svg" />
+
+</ResourceDictionary>

@@ -1,0 +1,104 @@
+﻿<Button x:Class="WinUI3.NovaUI.Controls.NebulaToggleSwitchNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DesignHeight="300"
+        d:DesignWidth="400"
+        Background="Green"
+        Click="ToggleButton_Click"
+        Content="{Binding}"
+        mc:Ignorable="d">
+
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Grid ColumnSpacing="4">
+                <!--  Define two columns: one for the image and one for the text  -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Image on the left (Initially visible)  -->
+                <Image x:Name="LeftImage"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       Width="16"
+                       Height="16"
+                       Opacity="1"
+                       Source="{ThemeResource ToggleSwitchOnImage16}" />
+                <!--  Text on the right (Initially visible)  -->
+                <TextBlock x:Name="RightText"
+                           Grid.Column="1"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Opacity="0"
+                           Text="Right Text" />
+
+                <!--  Image on the right (Initially hidden)  -->
+                <Image x:Name="RightImage"
+                       Grid.Column="1"
+                       Width="16"
+                       HorizontalAlignment="Left"
+                       Height="16"
+                       Opacity="0"
+                       Source="{ThemeResource ToggleSwitchOffImage16}" />
+                <!--  Text on the left (Initially hidden)  -->
+                <TextBlock x:Name="LeftText"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Opacity="0"
+                           Text="Left Text" />
+
+                <!--  VisualStateManager to manage layout changes  -->
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="ToggleStates">
+                        <VisualState x:Name="Off">
+                            <Storyboard>
+                                <!--  Animate Image from left to right  -->
+                                <DoubleAnimation Storyboard.TargetName="LeftImage"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="1"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="RightImage"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="0"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="LeftText"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="0"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="RightText"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="1"
+                                                 Duration="0:0:0.3" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="On">
+                            <Storyboard>
+                                <!--  Animate Image from right to left  -->
+                                <DoubleAnimation Storyboard.TargetName="LeftImage"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="0"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="RightImage"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="1"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="LeftText"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="1"
+                                                 Duration="0:0:0.3" />
+                                <DoubleAnimation Storyboard.TargetName="RightText"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 To="0"
+                                                 Duration="0:0:0.3" />
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+    </Button.Template>
+</Button>

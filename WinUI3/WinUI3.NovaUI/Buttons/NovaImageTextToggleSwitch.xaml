@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Button x:Class="WinUI3.NovaUI.Buttons.NovaImageTextToggleSwitch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="using:WinUI3.NovaUI.Buttons"
+        Click="OnClick"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
+
+    <Grid Height="30"
+          PointerPressed="Grid_PointerPressed">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Image"
+               Grid.Column="0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Source="{ThemeResource SettingsImage24}"
+               Stretch="UniformToFill" />
+        <TextBlock x:Name="Text"
+                   Grid.Column="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="Text" />
+    </Grid>
+</Button>

@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>WinUI3.ThemeLibrary</RootNamespace>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+	  <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <None Remove="Resources\Images\settings-24-dark.svg" />
+    <None Remove="Resources\Images\settings-24-light.svg" />
+    <None Remove="Resources\Images\toggle_swtich_off_16_dark.svg" />
+    <None Remove="Resources\Images\toggle_swtich_off_16_light.svg" />
+    <None Remove="Resources\Images\toggle_swtich_on_16_dark.svg" />
+    <None Remove="Resources\Images\toggle_swtich_on_16_light.svg" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="Resources\Images\settings-24-dark.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\settings-24-light.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\toggle_swtich_off_16_dark.svg" />
+    <Content Include="Resources\Images\toggle_swtich_off_16_light.svg" />
+    <Content Include="Resources\Images\toggle_swtich_on_16_dark.svg" />
+    <Content Include="Resources\Images\toggle_swtich_on_16_light.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="HighContractTheme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="LightTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DarkTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Styles\TextBlockResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WinUI3Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="msft-winui-CommonStyles\" />
+  </ItemGroup>
+  
+</Project>

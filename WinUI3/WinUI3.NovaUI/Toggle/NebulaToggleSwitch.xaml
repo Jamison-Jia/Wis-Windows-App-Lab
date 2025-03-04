@@ -1,0 +1,69 @@
+<Button x:Class="WinUI3.NovaUI.Controls.NebulaToggleSwitch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="This"
+        Padding="0"
+        Background="{Binding BackgroundBrush, ElementName=This}"
+        Click="OnClicked"
+        CornerRadius="13"
+        mc:Ignorable="d">
+
+    <Grid x:Name="ContentGrid"
+          Padding="8,4"
+          VerticalAlignment="Stretch"
+          Background="{Binding BackgroundBrush, ElementName=This}"
+          BorderThickness="0"
+          ColumnSpacing="4"
+          CornerRadius="13">
+        <Grid.Resources>
+            <Storyboard x:Name="SwitchStoryboard"
+                        Completed="OnSwitchStoryboardCompleted">
+                <DoubleAnimation x:Name="Animation1"
+                                 Storyboard.TargetName="ImageTransform"
+                                 Storyboard.TargetProperty="X"
+                                 Duration="0:0:0.3">
+                    <DoubleAnimation.EasingFunction>
+                        <QuadraticEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation x:Name="Animation2"
+                                 Storyboard.TargetName="TextTransform"
+                                 Storyboard.TargetProperty="X"
+                                 Duration="0:0:0.3">
+                    <DoubleAnimation.EasingFunction>
+                        <QuadraticEase EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <!--  Image  -->
+        <Image x:Name="ButtonImage"
+               Grid.Column="0"
+               Width="16"
+               Height="16"
+               VerticalAlignment="Center"
+               Source="{Binding Path=ImageSource, ElementName=This}"
+               Stretch="UniformToFill">
+            <Image.RenderTransform>
+                <TranslateTransform x:Name="ImageTransform" />
+            </Image.RenderTransform>
+        </Image>
+        <!--  Text  -->
+        <TextBlock x:Name="ButtonText"
+                   Grid.Column="1"
+                   FontSize="12"
+                   Foreground="{Binding TextBrush, ElementName=This}"
+                   Style="{StaticResource CommonTextBlockStyle}"
+                   Text="{Binding Path=Text, ElementName=This}">
+            <TextBlock.RenderTransform>
+                <TranslateTransform x:Name="TextTransform" />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</Button>

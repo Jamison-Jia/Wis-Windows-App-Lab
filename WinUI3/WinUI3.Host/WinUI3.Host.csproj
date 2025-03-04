@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>WindowTests</RootNamespace>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<Platforms>x86;x64;ARM64</Platforms>
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)')) &gt;= 8">win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)')) &lt; 8">win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+		<!--<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>-->
+		<UseWinUI>true</UseWinUI>
+		<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+		
+	</PropertyGroup>
+
+	<!--<PropertyGroup>
+		<WindowsSdkPackageVersion>10.0.19041.38</WindowsSdkPackageVersion>
+	</PropertyGroup>-->
+
+	<ItemGroup>
+	  <Compile Remove="NewFolder1\**" />
+	  <Content Remove="NewFolder1\**" />
+	  <EmbeddedResource Remove="NewFolder1\**" />
+	  <None Remove="NewFolder1\**" />
+	  <Page Remove="NewFolder1\**" />
+	  <PRIResource Remove="NewFolder1\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="SourceGenerator\SimpleTests\Interop.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="ListView\ListViewWindow.xaml" />
+	  <None Remove="Windows\Animation\AnimationWindow.xaml" />
+	  <None Remove="Windows\Animation\NotificationWindow.xaml" />
+	  <None Remove="Windows\Events\Mouse\MouseEventsWindow.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.0.240109" />
+		<PackageReference Include="H.NotifyIcon.WinUI" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.106">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
+		<Manifest Include="$(ApplicationManifest)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="SourceGenerator\SimpleTests\Interop.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\WinUI3.NovaUI\WinUI3.NovaUI.csproj" />
+	  <ProjectReference Include="..\WinUI3.ThemeLibrary\WinUI3.ThemeLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Windows\Animation\NotificationWindow.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="NewFolder\ListViewWindow.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Windows\Animation\AnimationWindow.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Windows\Events\Mouse\MouseEventsWindow.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Win32\" />
+	</ItemGroup>
+</Project>

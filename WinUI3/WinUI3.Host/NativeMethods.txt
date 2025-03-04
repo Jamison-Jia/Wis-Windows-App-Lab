@@ -1,0 +1,5 @@
+﻿DwmRegisterThumbnail
+DwmUpdateThumbnailProperties
+DWM_TNP_*
+GetSystemMetrics
+HICON
